@@ -1,0 +1,22 @@
+#+TITLE: wkb-collab
+
+P2P collaborative editing over Tox (CRDT), and a message channel other packages use.
+
+A package for [[https://github.com/lf-araujo/wkbenchless][wkbenchless]]. Install it from the editor with
+=M-x package-install= (or =wkbenchless ctl package-install wkb-collab=).
+
+* What it does
+Share a buffer with another wkbenchless over Tox (no server) or plain host:port,
+and co-edit it: edits merge through a Logoot CRDT. Commands: =tox-share=,
+=tox-join=, =tox-leave=, =tox-status=.
+
+It is also a message channel for other packages: =registerCollabHandler=,
+=onPeerJoined=, =collabBroadcast= and =onCollabStatus= (see =tox_collab.nim=).
+wkb-dag-ledger reviews papers over it.
+
+* Building the Tox tunnel
+=build.nims= turns the tunnel on (=-d:wkbTox=) when nim-tuntox and a
+pkg-config-visible c-toxcore are both found; =nimble install -d= here fetches
+nim-tuntox. Without them collab still works on a LAN (host:port).
+=scripts/build-toxcore.sh <prefix>= builds a static toxcore + libsodium.
+Design notes: =docs/tox-collab.org=.

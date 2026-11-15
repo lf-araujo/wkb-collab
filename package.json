@@ -1,0 +1,8 @@
+{
+  "name": "wkb-collab",
+  "version": "0.1.0",
+  "description": "P2P collaborative editing over Tox (CRDT), and a message channel other packages use",
+  "kind": "native",
+  "entry": "tox_collab.nim",
+  "requires": []
+}
